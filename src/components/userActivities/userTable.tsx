@@ -1,28 +1,34 @@
-import { Table } from "antd";
 import React from "react"
+import { DataGrid, GridColDef, GridRenderCellParams, GridToolbar } from '@mui/x-data-grid';
 
 const UserTable = ({ data }: any) => {
 
   const dataSource = data?.map((res: any, index: number) => {
     return {
-      key: index + 1,
+      id: index + 1,
       name: res?.name,
     }
   })
 
-  const columns = [
+
+  const columns: GridColDef[] = [
     {
-      title: 'User List',
-      dataIndex: 'name',
-      key: 'name',
+      field: 'name', headerName: 'User List', flex: 1, disableColumnMenu: true, headerClassName: 'tableHeader', minWidth: 200
     },
+   
+  
   ];
   return (
     <div>
-      <Table
-        dataSource={dataSource}
-        columns={columns}
-      />
+       <DataGrid
+            className="adminTable"
+            rows={dataSource?.length > 0 ? dataSource : []}
+            rowHeight={50}
+            columns={columns}
+            slots={{
+              pagination: null,
+            }}
+          />
     </div>
   )
 };
