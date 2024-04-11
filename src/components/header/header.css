@@ -1,0 +1,17 @@
+.header {
+  background: var(--primary-color);
+  height: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.header .title {
+  color: var(--white-color);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  cursor: pointer;
+}
