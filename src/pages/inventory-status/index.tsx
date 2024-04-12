@@ -1,4 +1,6 @@
+import { StaticValues } from "@/constants";
 import { useGetAreaChartQuery, useGetStockDataQuery } from "@/services/apiSlices/inventory";
+import { Card } from "@mui/material";
 import dynamic from "next/dynamic";
 import React from "react"
 
@@ -17,10 +19,15 @@ const InventoryStatus = () => {
     const { data: getStockData } = useGetStockDataQuery('')
     return (
         <div>
-            <p>Inventory Over Time Area Chart</p>
-            <AreaChart data={areaChartData?.data ? areaChartData?.data : []} />
-            <p>Low Stock Products List</p>
-            <StockChart datas={getStockData?.data ? getStockData?.data :[]}/>
+            <Card className="p-2 mt-2">
+                <p>{StaticValues.InventoryAreaChart}</p>
+                <AreaChart data={areaChartData?.data ? areaChartData?.data : []} />
+            </Card>
+
+            <Card className="p-2 mt-2">
+                <p>{StaticValues.InventoryStockChart}</p>
+                <StockChart datas={getStockData?.data ? getStockData?.data : []} />
+            </Card>
         </div>
     )
 };

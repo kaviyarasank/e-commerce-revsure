@@ -1,4 +1,6 @@
+import { StaticValues } from "@/constants";
 import { useGetSalesDataQuery, useSalesBarQuery, useSalesPieQuery } from "@/services/apiSlices/salesAnalytics";
+import { Card } from "@mui/material";
 import dynamic from "next/dynamic";
 import React from "react"
 
@@ -22,12 +24,20 @@ const SalesAnalytics = () => {
 
     return (
         <div>
-            <p>Sales Over Time Line Chart</p>
-            <LineChart data={salesData?.data ? salesData?.data :[]} />
-            <p>Product-wise Sales Pie Chart</p>
-            <PieChart data={salesPieData?.data ? salesPieData?.data :[]} />
-            <p>Top Selling Products Bar Chart</p>
-            <BarChart data={salesBar?.data ? salesBar?.data :[]}/>
+            <Card className="p-2 mt-2">
+                <p>{StaticValues.SalesDataLineChart}</p>
+                <LineChart data={salesData?.data ? salesData?.data : []} />
+            </Card>
+
+            <Card className="p-2 mt-2">
+                <p>{StaticValues.salesDataPieChart}</p>
+                <PieChart data={salesPieData?.data ? salesPieData?.data : []} />
+            </Card>
+
+            <Card className="p-2 mt-2">
+                <p>{StaticValues.salesDataBarChart}</p>
+                <BarChart data={salesBar?.data ? salesBar?.data : []} />
+            </Card>
         </div>
     )
 };

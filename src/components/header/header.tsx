@@ -25,7 +25,7 @@ const Header = () => {
     return (
         <header className="header d-flex align-items-center justify-content-between">
             <p className="title" onClick={() => router.push("/")}>{StaticValues.title}</p>
-            <Image src={ProfileImg} alt="profile" className="" onClick={handleClick} />
+            <Image src={ProfileImg} alt="profile" className="cursor-pointer" onClick={handleClick} />
             <Popover
                 id={id}
                 open={open}

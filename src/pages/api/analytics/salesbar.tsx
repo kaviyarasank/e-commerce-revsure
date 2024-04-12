@@ -3,7 +3,7 @@ export default async function (req: any, res: any) {
          const data = [
             { labelName: 'Car', value: 27 },
             { labelName: 'Bike', value: 25 },
-            { labelName: 'Bus', value: 18 },
+            { labelName: 'Bus', value: 20 },
             { labelName: 'Cycle', value: 15 },
         ]
         return res.send({
